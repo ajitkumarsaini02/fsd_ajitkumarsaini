@@ -8,7 +8,7 @@ void traverseArray(vector<int> &X){
     }
     cout << endl;
 }
-vector<int> unionArray(vector<int>& A, vector<int>& B, int m, int n){
+vector<int> a_minus_b(vector<int>& A, vector<int>& B, int m, int n){
     int i=0, j=0;
     vector<int> C;
     while(i<m && j<n){
@@ -47,8 +47,8 @@ int main()
         cin >> B[j];
     }
 
-    vector<int> C = unionArray(A,B,m,n);
-    cout << "Union array: ";
+    vector<int> C = a_minus_b(A,B,m,n);
+    cout << "A minus B array: ";
     traverseArray(C);
 
     return 0;
