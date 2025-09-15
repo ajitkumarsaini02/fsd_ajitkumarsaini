@@ -1,3 +1,18 @@
 h2{
     color:red;
 }
+
+div{
+    color: #ffff00;
+    font-family:'Courier New', Courier, monospace ;
+}
+/* universal selector */
+*{
+     background-color:#37353E;
+}
+p{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+}
