@@ -1,4 +1,4 @@
-// Evaluate postfix expression
+// Evaluate infix to postfix expression
 #include<iostream>
 #include<vector>
 #define STACKSIZE 10
