@@ -1,0 +1,41 @@
+#a1{
+    background-color: #f67004;
+    color: white;
+
+}  
+#a2{
+    background-color: #383be5;
+    color: white;
+}
+#a3{
+    background-color: #2fee6c;
+    color: white;
+}
+#c2{
+    color: green;
+}
+#c3{
+    color: blue;
+}
+#c4{
+    color: #f67004;
+}
+.message{
+    color: blue;
+}
+#alert{
+    color: red;
+}
+.c1
+{
+    margin-left: 45px;
+}
+a[target]{
+    background-color: blue;
+    color: white;
+}
+img[alt]{
+    border-width: 4px;
+    border-style: solid;
+    border-color: #38f743;
+}
