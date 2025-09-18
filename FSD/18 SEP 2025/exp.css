@@ -1,0 +1,10 @@
+h3{
+    text-align: center;
+    line-height: 20px;
+}
+p{
+    letter-spacing: 1px;
+    word-spacing: 1px;
+    text-decoration:rgb(219, 15, 15) wavy underline ;
+    text-indent: 90px;
+}

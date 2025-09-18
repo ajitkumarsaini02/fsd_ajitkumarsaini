@@ -1,0 +1,17 @@
+p{
+    text-align: center;
+    color: rgb(19, 128, 224);
+    font-weight: bold;
+    /* text-decoration: underline; */
+    /* text-decoration: line-through; */
+    /* text-decoration: green wavy underline; */
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-transform: capitalize;
+    text-indent: 90px;
+    /* letter-spacing: 3px; */
+    line-height:15px;
+
+}
+a{
+    text-decoration: none;
+}
