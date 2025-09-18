@@ -8,3 +8,12 @@ p{
     text-decoration:rgb(219, 15, 15) wavy underline ;
     text-indent: 90px;
 }
+.div1{
+    padding-top: 50px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+    background-color: rgb(183, 220, 218);
+    text-align: center;
+       
+}
