@@ -41,24 +41,3 @@ int pop(){
 int stackTop(){
     return S.item[S.top];
 }
-int main(){
-    
-    Initialize();
-    push(100);
-    push(200);
-    push(300);
-    push(400);
-    push(500);
-    push(600);
-    push(700);
-    push(800);
-    push(900);
-    push(1000);
-    for(int i=0;i<STACKSIZE;i++){
-        cout<<S.item[i]<<endl;
-
-    }
-    cout<<"Pop: "<<pop()<<endl;
-    cout<<"Pop: "<<pop()<<endl;
-    return 0;
-}

@@ -1,5 +1,6 @@
 #include<iostream>
 #define STACKSIZE 10
+// #include"FirstStackHeader.h"
 using namespace std;
 
 struct stack {

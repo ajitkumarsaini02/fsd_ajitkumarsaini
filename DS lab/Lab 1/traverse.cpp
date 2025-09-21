@@ -12,6 +12,7 @@ int main()
     int n;
     cout<<"Enter the size of array:";
     cin >>n;
+    cout<<"Enter element of array: ";
     vector<int> A(n);
     for(int i=0;i<n;i++){
         cin >>A[i];
