@@ -7,15 +7,16 @@ struct Node {
     struct Node *Next;
 };
 
-struct Node *Start;   
+struct Node *Start;   // global pointer
 
+// New Node allocate karna
 Node *GetNode() {
     Node *p;
     p = (Node*)malloc(sizeof(struct Node));
     return p;
 }
 
-
+// Insert at Beginning
 void InsBeg(char x) {
     Node *p = GetNode();
     p->info = x;
@@ -23,22 +24,7 @@ void InsBeg(char x) {
     Start = p;
 }
 
-void InsEnd(char x) {
-    Node *p = GetNode();
-    p->info = x;
-    p->Next = NULL;
-
-    if (Start == NULL) {   
-        Start = p;
-        return;
-    }
-    Node *q = Start;
-    while (q->Next != NULL) {
-        q = q->Next;
-    }
-    q->Next = p;
-}
-
+// Traverse Linked List
 void Traverse() {
     Node *p = Start;
     while (p != NULL) {
@@ -49,15 +35,11 @@ void Traverse() {
 }
 
 int main() {
-    Start = NULL;
+    Start = NULL;   // initially list empty
 
     InsBeg('A');
     InsBeg('B');
-    InsBeg('C');  
-
-    InsEnd('X');
-    InsEnd('Y');
-    InsEnd('Z');
+    InsBeg('C');
 
     cout << "Linked List: ";
     Traverse();
