@@ -1,66 +1,23 @@
 #include<iostream>
 #include<stdlib.h>
+#include"LinkedListheader.h"
 using namespace std;
 
-struct Node {
-    char info;
-    struct Node *Next;
-};
-
-struct Node *Start;   
-
-Node *GetNode() {
-    Node *p;
-    p = (Node*)malloc(sizeof(struct Node));
-    return p;
-}
-
-
-void InsBeg(char x) {
-    Node *p = GetNode();
-    p->info = x;
-    p->Next = Start;
-    Start = p;
-}
-
-void InsEnd(char x) {
-    Node *p = GetNode();
-    p->info = x;
-    p->Next = NULL;
-
-    if (Start == NULL) {   
-        Start = p;
-        return;
-    }
-    Node *q = Start;
-    while (q->Next != NULL) {
-        q = q->Next;
-    }
-    q->Next = p;
-}
-
-void Traverse() {
-    Node *p = Start;
-    while (p != NULL) {
-        cout << p->info << " ";
-        p = p->Next;
-    }
-    cout << endl;
-}
 
 int main() {
-    Start = NULL;
-
-    InsBeg('A');
-    InsBeg('B');
-    InsBeg('C');  
-
-    InsEnd('X');
-    InsEnd('Y');
-    InsEnd('Z');
-
+    Node *Start = NULL;
+    InsBeg(&Start, 'X');
+    InsBeg(&Start, 'Y');
+    InsBeg(&Start, 'Z');
     cout << "Linked List: ";
-    Traverse();
+    Traverse(Start);
+    cout << "After inserting at the end: ";
+    InsEnd(&Start, 'A');
+    InsEnd(&Start, 'B');    
+    InsEnd(&Start, 'C');
+    InsEnd(&Start, 'D');
+    cout << "Linked List: ";
+    Traverse(Start);
 
     return 0;
 }

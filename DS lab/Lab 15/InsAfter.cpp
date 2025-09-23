@@ -3,9 +3,9 @@
 #include"LinkedListheader.h"
 using namespace std;
 
+
 int main() {
     Node *Start = NULL;
-    
     InsBeg(&Start,'A');
     InsBeg(&Start,'B');
     InsBeg(&Start,'C');
@@ -14,7 +14,13 @@ int main() {
     InsBeg(&Start,'H');
     cout << "List after InsBeg: ";
     Traverse(Start);
-    return 0;
 
-    
+    InsAfter(&Start, Start->Next,'D');
+    InsAfter(&Start, Start->Next,'E');
+    InsAfter(&Start, Start->Next,'F');
+
+    cout << "Linked List: ";
+    Traverse(Start);
+
+    return 0;
 }

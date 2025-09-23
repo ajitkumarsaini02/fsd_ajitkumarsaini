@@ -5,7 +5,7 @@
 #include<math.h>
 using namespace std;
 struct stack{
-    int item[STACKSIZE];
+    char item[STACKSIZE];
     int top;
 }S;
 
@@ -20,7 +20,7 @@ bool IsEmpty(){
         return false;
     }
 }
-int push(char x){
+void push(char x){
     if(S.top==STACKSIZE-1){
         cout<<"Stack overflow";
         exit(1);
@@ -30,7 +30,7 @@ int push(char x){
         S.item[S.top]=x;
     }
 }
-int pop(){
+char pop(){
     if(IsEmpty()){
         cout<<"Stack underflow";
         exit(1);
@@ -41,7 +41,7 @@ int pop(){
         return x;
     }
 }
-int stackTop(){
+char stackTop(){
     return S.item[S.top];
 }
 bool prcd(char op1, char op2){
@@ -76,7 +76,7 @@ void infixToPostfix(char infix[]){
     while(infix[i]!='\0'){
         char symb = infix[i];
         i++;
-        if(symb>='a' && symb<='z' || symb>='A' && symb<='B' || symb>='0' && symb<='9'){
+        if((symb>='a' && symb<='z') || (symb>='A' && symb<='B') || (symb>='0' && symb<='9')){
             postfix.push_back(symb);
         }
         else{

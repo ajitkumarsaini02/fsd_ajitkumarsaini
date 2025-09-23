@@ -3,18 +3,18 @@
 #include"LinkedListheader.h"
 using namespace std;
 
-int main() {
-    Node *Start = NULL;
+
+int main(){
+     Node *Start = NULL;
     
     InsBeg(&Start,'A');
     InsBeg(&Start,'B');
     InsBeg(&Start,'C');
-    InsBeg(&Start,'F');
-    InsBeg(&Start,'G');
-    InsBeg(&Start,'H');
-    cout << "List after InsBeg: ";
+    InsEnd(&Start,'X');
+    InsEnd(&Start,'Y');
+    InsEnd(&Start,'Z');
+    Traverse(Start);
+    cout<<"Deleted Element is: "<<DelBeg(&Start)<<endl;
     Traverse(Start);
     return 0;
-
-    
 }
