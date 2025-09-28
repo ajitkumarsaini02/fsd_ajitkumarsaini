@@ -11,6 +11,10 @@ int main(){
     orderedInsert(&Start,'C');
     orderedInsert(&Start,'F');
     orderedInsert(&Start,'E');
+    InsEnd(&Start, 'A');
+    InsEnd(&Start, 'B');    
+    InsEnd(&Start, 'C');
+    InsEnd(&Start, 'D');
     cout<<"Ordered Insertion: ";
     Traverse(Start);
     InsBeg(&Start,'X');

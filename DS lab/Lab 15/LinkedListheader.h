@@ -23,7 +23,7 @@ void InsEnd(Node **Start,char x) {
     p->Next = NULL;
     if (*Start == NULL) {
         *Start = p;
-        return;
+        return ;
     }
     Node *q = *Start;
     while (q->Next != NULL) {
