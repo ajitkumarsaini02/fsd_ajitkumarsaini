@@ -1,0 +1,19 @@
+.maindiv {
+  width: 300px;
+  height: 300px;
+  background: rgba(0, 0, 0, 0.675);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px auto;
+  border-radius: 20px; /* optional: for rounded corners */
+  box-shadow: 0 2px 8px #000000f3;
+}
+
+.image .circle-img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #333;
+}

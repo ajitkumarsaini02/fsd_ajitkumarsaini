@@ -10,15 +10,12 @@ void traverseArray(vector<int> &A){
     cout << endl;
 }
 
-// Function to insert an element into a sorted array
 void insertSortedArray(vector<int>& A, int x){
     int i = 0;
-    // Find the correct position to insert x
     while(i <= A.size() - 1 && x >= A[i]){
         i++;
     }
     
-    // Insert x at position i
     A.insert(A.begin() + i, x);
 }
 

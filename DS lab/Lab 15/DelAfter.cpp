@@ -7,8 +7,6 @@ int main() {
     
     Node *Start = NULL;
    
-
-    // Insert nodes at beginning
     InsBeg(&Start,'A');
     InsBeg(&Start,'B');
     InsBeg(&Start,'C');
@@ -17,7 +15,6 @@ int main() {
     cout << "List after InsBeg: ";
     Traverse(Start);
 
-    // Insert nodes at end
     InsEnd(&Start,'X');
     InsEnd(&Start,'Y');
     InsEnd(&Start,'Z'); 

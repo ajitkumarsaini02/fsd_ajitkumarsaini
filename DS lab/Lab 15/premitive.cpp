@@ -36,7 +36,6 @@ void InsEnd(char x) {
     q->Next = p;
 }
 
-// Insert after node q
 void InsAfter(Node *q, char x){
     Node *p = GetNode();
     p->info = x;
@@ -53,7 +52,6 @@ void Traverse() {
     cout << endl;
 }
 
-// Delete first node
 char DelBeg() {
     if (Start == NULL) {
         cout << "List is empty!" << endl;
@@ -66,7 +64,7 @@ char DelBeg() {
     return x;
 }
 
-// Delete node after q
+
 char DelAfter(Node *q){ 
     if (q == NULL || q->Next == NULL) {
         cout << "No node exists after given node!" << endl;
@@ -79,7 +77,6 @@ char DelAfter(Node *q){
     return x;
 }
 
-// Delete last node
 char DelEnd(){
     if (Start == NULL) {
         cout << "List is empty!" << endl;
@@ -103,7 +100,6 @@ char DelEnd(){
 int main() {
     Start = NULL;
 
-    // Insert nodes at beginning
     InsBeg('A');
     InsBeg('B');
     InsBeg('C');
@@ -112,24 +108,20 @@ int main() {
     cout << "List after InsBeg: ";
     Traverse();
 
-    // Insert nodes at end
     InsEnd('X');
     InsEnd('Y');
     InsEnd('Z'); 
     cout << "List after InsEnd: ";
     Traverse();
 
-    // Delete first node
     cout << "Deleted element (DelBeg): " << DelBeg() << endl;
     cout << "List after DelBeg: ";
     Traverse();
 
-    // Delete last node
     cout << "Deleted element (DelEnd): " << DelEnd() << endl;
     cout << "List after DelEnd: ";
     Traverse();
 
-    // Delete node after first node
     cout << "Deleted element (DelAfter Start): " << DelAfter(Start) << endl;
     cout << "List after DelAfter: ";
     Traverse();
