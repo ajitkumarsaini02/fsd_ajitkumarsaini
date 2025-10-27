@@ -1,0 +1,8 @@
+body{
+    background-color: aquamarine;
+}
+@media screen and (min-width:500px) and (max-width: 700px){
+    body{
+        background-color: rgb(79, 134, 246);
+    }
+}

@@ -12,8 +12,7 @@ void deleteArray(vector<int>&A, int pos){
     for(int i=pos-1;i<A.size()-1;i++){
         A[i]=A[i+1];
     }
-    A.pop_back();
-    
+    A.pop_back();  
 }
 int main()
 {

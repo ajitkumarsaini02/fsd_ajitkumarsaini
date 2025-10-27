@@ -2,7 +2,6 @@
 #include<vector>
 using namespace std;
 
-// Function to print repeated elements
 void printRepeatedElements(vector<int>& A) {
     cout << "Repeated elements are: ";
 
@@ -21,8 +20,6 @@ void printRepeatedElements(vector<int>& A) {
                 break;
             }
         }
-
-        // If repeated and first time being printed
         if(count > 1 && j == i){
             cout << A[i] << " ";
         }
