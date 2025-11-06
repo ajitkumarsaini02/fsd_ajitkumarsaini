@@ -1,0 +1,20 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.sticky-box {
+  position: sticky;
+  top: 0; /* sticks to the top */
+  background-color: #ff9800;
+  color: white;
+  padding: 15px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.content {
+  height: 1500px; /* just to make the page scrollable */
+  padding: 20px;
+  background: linear-gradient(white, lightgray);
+}

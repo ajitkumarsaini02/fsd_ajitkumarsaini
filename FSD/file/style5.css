@@ -42,6 +42,15 @@ table td a:hover {
   transition: 0.3s;
 }
 
+.sidebar a {
+    margin: 10px 0;
+    padding: 8px 15px;
+    text-decoration: none;
+    color: #0c0b0b;
+    transition: color 0.3s;
+    display: block;
+}
+
 .cart-btn {
   background-color: #e8df3a;
   color: #fff;
@@ -81,11 +90,7 @@ table td a:hover {
     margin-bottom: 10px;
   }
 }
-/* .cart {
-    margin-left: 5rem;
-    height: 12rem;
-    width: 50rem;
-} */
+
  .cart {
     margin-left: 5rem;
     width: 50rem;
@@ -95,3 +100,55 @@ table td a:hover {
     background-color: #d1a374;
     font-weight: bold;
 }
+
+---------- Registration Page Styling ----------
+.content {
+  text-align: left;
+  padding: 30px 60px;
+  background-color: #fbe9d8;
+}
+
+.content label {
+  display: block;
+  font-weight: bold;
+  color: #3b2a1a;
+} 
+
+.content input[type="text"],
+.content input[type="password"],
+.content input[type="email"],
+.content select,
+.content textarea {
+  padding: 10px;
+  border: 1px solid #a56b3b;
+  border-radius: 6px;
+  margin-top: 6px;
+  background-color: #fff8f3;
+  
+}
+ 
+.content input[type="radio"],
+.content input[type="checkbox"] {
+  margin-right: 6px;
+}
+
+.content textarea {
+  resize: none;
+  height: 90px;
+}
+
+.content input[type="submit"] {
+  background-color: #04040d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 25px;
+  transition: background-color 0.3s;
+  font-size: 15px;
+}
+
+.content input[type="submit"]:hover {
+  background-color: #875c2b;
+} 

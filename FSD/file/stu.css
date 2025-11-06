@@ -1,122 +1,185 @@
-/* Body */
-body {
-  background-color: #f3e0e0;
-  font-family: Arial, sans-serif;
+/* ---------- Full Page Layout ---------- */
+html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
+  background-color: #f3e0e0;
+  font-family: Arial, sans-serif;
 }
 
-/* Logo */
-.logo {
-  display: block;
-  margin: 20px auto;
-  width: 150px;
-  box-shadow: 0 0 0 1px rgba(0,0,0,.15),
-              0 2px 3px 0 rgba(0,0,0,.1);
-}
-
-/* Navigation */
-nav {
-  background-color: #6274fc;
-}
-
-.topnav {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  margin: 0;
-  padding: 10px 0;
-  gap: 40px;
-}
-
-.topnav li a {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.topnav li a:hover {
-  color: aqua;
-}
-
-/* Divider */
-hr {
-  border: 0;
-  height: 2px;
-  background-color: #0c0d0d;
-  margin: 10px 0;
-}
-
-/* Table wrapper for responsiveness */
-.table-wrapper {
-  overflow-x: auto;
-  padding: 10px;
-}
-
-/* Table */
+/* ---------- Table Styling ---------- */
 table {
-  width: 100%;
+  width: 90%;
+  min-height: 100vh;   /* full page height */
+  margin: 0 auto 30px;
   border-collapse: collapse;
   text-align: center;
 }
 
 th, td {
-  border: 1px solid black;
+  border: 1px solid #000;
   padding: 10px;
 }
 
 th {
   background-color: #a56b3b;
-  color: white;
-  font-weight: bold;
+  color: black;
 }
 
 td {
-  background-color: #f3d2b0;
+  background-color: #e4b9a0;
 }
 
 td img {
   width: 80px;
-  height: auto;
 }
 
-/* Links in table */
-td a {
+table td a {
   text-decoration: none;
   color: #0c0b0b;
+  transition: color 0.3s;
+}
+
+table td a:hover {
+  color: aqua;
+  text-decoration: none;
   transition: 0.3s;
 }
 
-td a:hover {
-  color: aqua;
+/* ---------- Sidebar ---------- */
+.sidebar {
+  width: 20%;
+  background-color: #f0c9aa;
+  text-align: left;
+  padding-left: 15px;
 }
 
-/* Cart button */
-.cart-btn {
-  background-color: #6274fc;
+.sidebar a {
+  display: block;
+  color: #2c1a07;
+  font-weight: bold;
+}
+
+.sidebar a:hover {
+  color: #009999;
+}
+
+/* ---------- Registration Page Content ---------- */
+.content {
+  text-align: left;
+  padding: 30px 60px;
+  background-color: #fbe9d8;
+  min-height: 500px;   /* ensure tall content area */
+  vertical-align: top;
+}
+
+.content h2 {
+  text-align: center;
+  color: #4b2e05;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #a56b3b;
+  display: inline-block;
+  padding-bottom: 6px;
+}
+
+.content label {
+  display: block;
+  font-weight: bold;
+  color: #3b2a1a;
+  margin-top: 15px;
+}
+
+.content input[type="text"],
+.content input[type="password"],
+.content input[type="email"],
+.content select,
+.content textarea {
+  width: 85%;
+  padding: 10px;
+  border: 1px solid #a56b3b;
+  border-radius: 6px;
+  margin-top: 6px;
+  background-color: #fff8f3;
+  font-size: 15px;
+}
+
+.content input[type="radio"],
+.content input[type="checkbox"] {
+  margin-right: 6px;
+}
+
+.content textarea {
+  resize: none;
+  height: 90px;
+}
+
+.content input[type="submit"] {
+  background-color: #a56b3b;
   color: white;
   border: none;
-  padding: 5px 12px;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 25px;
+  transition: background-color 0.3s;
+  font-size: 15px;
+}
+
+.content input[type="submit"]:hover {
+  background-color: #875c2b;
+}
+
+/* ---------- Cart Buttons (Optional, Shared with Other Pages) ---------- */
+.cart-btn {
+  background-color: #e8df3a;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
   cursor: pointer;
   border-radius: 5px;
-  font-weight: bold;
-  transition: 0.3s;
+  transition: background-color 0.3s;
 }
 
 .cart-btn:hover {
-  background-color: #4a5ccc;
+  background-color: #e0f44c;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .topnav {
-    flex-direction: column;
-    gap: 15px;
+/* ---------- Responsive Design ---------- */
+@media screen and (max-width: 768px) {
+  table, tr, th, td {
+    display: block;
+    width: 100%;
   }
 
-  table th, table td {
-    font-size: 14px;
-    padding: 6px;
+  tr {
+    margin-bottom: 15px;
+  }
+
+  th {
+    text-align: left;
+    background-color: #a56b3b;
+    color: white;
+  }
+
+  td {
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  td img {
+    margin-bottom: 10px;
+  }
+
+  .content {
+    padding: 15px;
+  }
+
+  .content input[type="text"],
+  .content input[type="password"],
+  .content input[type="email"],
+  .content select,
+  .content textarea {
+    width: 100%;
   }
 }
