@@ -7,7 +7,7 @@ int fib(int n){
 }
 int main(){
     int a,b;
-    cout<<"Enter base number:";
+    cout<<"Enter number:";
     cin>>a;
     cout<<fib(a);
     return 0;
