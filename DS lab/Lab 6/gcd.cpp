@@ -6,9 +6,9 @@ int gcd(int a, int b){
 }
 int main(){
     int a,b;
-    cout<<"Enter base number:";
+    cout<<"Enter first number:";
     cin>>a;
-    cout<<"Enter power number:";
+    cout<<"Enter second number:";
     cin>>b;
     cout<<gcd(a,b);
     return 0;
