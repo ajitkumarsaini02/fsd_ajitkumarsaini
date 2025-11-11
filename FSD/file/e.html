@@ -1,12 +1,15 @@
 <!-- AJIT KUMAR SAINI (2400320100114) -->
+<!-- OBJECTIVE: Create a Registration Page -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registration Page</title>
-    <link rel="stylesheet" href="style5.css" />
+    <link rel="stylesheet" href="stu.css" />
+    <script src="exp7.js" defer></script>
   </head>
+
   <body>
     <table>
       <tr>
@@ -33,79 +36,75 @@
         <td colspan="5" class="content">
           <h2>Registration Form</h2>
 
-          <label>Name:
-            <input type="text" placeholder="Enter Name" />
-          </label>
-          <br /><br />
+          <form onsubmit="return validateForm()" class="reg-form">
+            <label>Name:</label>
+            <input type="text" id="name" placeholder="Enter Name" /><br /><br />
 
-          <label>Password:
-            <input type="password" placeholder="Enter Password" />
-          </label>
-          <br /><br />
+            <label>Password:</label>
+            <input type="password" id="password" placeholder="Enter Password" /><br /><br />
 
-          <label>E-mail ID:
-            <input type="text" placeholder="Enter your E-mail ID" />
-          </label>
-          <br /><br />
+            <label>Email ID:</label>
+            <input type="text" placeholder="Enter your E-mail ID" /><br /><br />
 
-          <label>Phone Number:
-            <input type="text" placeholder="Enter Phone Number" />
-          </label>
-          <br /><br />
+            <label>Phone Number:</label>
+            <input type="text" placeholder="Enter Phone Number" /><br /><br />
 
-          <label>Sex:</label>
-          <input type="radio" name="sex" value="male" /> Male
-          <input type="radio" name="sex" value="female" /> Female
-          <br /><br />
+            <label>Sex:</label>
+            <input type="radio" name="sex" value="male" /> Male
+            <input type="radio" name="sex" value="female" /> Female
+            <br /><br />
 
-          <label>Date of Birth:</label>
-          <select name="day">
-            <option>Day</option>
-            <script>
-              for (let i = 1; i <= 31; i++) {
-                document.write(`<option value="${i}">${i}</option>`);
-              }
-            </script>
-          </select>
+            <label>Date of Birth:</label>
+            <div class="dob-group">
+              <select name="day">
+                <option>Day</option>
+                <script>
+                  for (let i = 1; i <= 31; i++) {
+                    document.write(`<option value="${i}">${i}</option>`);
+                  }
+                </script>
+              </select>
 
-          <select name="month">
-            <option>Month</option>
-            <option>January</option>
-            <option>February</option>
-            <option>March</option>
-            <option>April</option>
-            <option>May</option>
-            <option>June</option>
-            <option>July</option>
-            <option>August</option>
-            <option>September</option>
-            <option>October</option>
-            <option>November</option>
-            <option>December</option>
-          </select>
+              <select name="month">
+                <option>Month</option>
+                <option>January</option>
+                <option>February</option>
+                <option>March</option>
+                <option>April</option>
+                <option>May</option>
+                <option>June</option>
+                <option>July</option>
+                <option>August</option>
+                <option>September</option>
+                <option>October</option>
+                <option>November</option>
+                <option>December</option>
+              </select>
 
-          <select name="year">
-            <option>Year</option>
-            <script>
-              for (let y = 1980; y <= 2025; y++) {
-                document.write(`<option value="${y}">${y}</option>`);
-              }
-            </script>
-          </select>
-          <br /><br />
+              <select name="year">
+                <option>Year</option>
+                <script>
+                  for (let y = 1980; y <= 2025; y++) {
+                    document.write(`<option value="${y}">${y}</option>`);
+                  }
+                </script>
+              </select>
+            </div>
+            <br /><br />
 
-          <label>Languages Known:</label><br />
-          <input type="checkbox" name="lang" value="english" /> English
-          <input type="checkbox" name="lang" value="telugu" /> Telugu
-          <input type="checkbox" name="lang" value="hindi" /> Hindi
-          <input type="checkbox" name="lang" value="tamil" /> Tamil
-          <br /><br />
+            <label>Languages Known:</label><br />
+            <input type="checkbox" name="lang" value="english" /> English
+            <input type="checkbox" name="lang" value="telugu" /> Telugu
+            <input type="checkbox" name="lang" value="hindi" /> Hindi
+            <input type="checkbox" name="lang" value="tamil" /> Tamil
+            <br /><br />
 
-          <label>Address:</label><br />
-          <textarea rows="4" cols="40" placeholder="Enter your address"></textarea>
-          <br /><br />
+            <label>Address:</label><br />
+            <textarea rows="4" cols="40" placeholder="Enter your address"></textarea>
+            <br /><br />
 
-          <input type="submit" value="Submit" />
+            <input type="submit" value="Submit" />
+          </form>
         </td>
       </tr>
     </table>

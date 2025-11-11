@@ -1,19 +1,21 @@
-/* ---------- Full Page Layout ---------- */
-html, body {
-  height: 100%;
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f5f0;
   margin: 0;
   padding: 0;
-  background-color: #f3e0e0;
-  font-family: Arial, sans-serif;
+  color: #333;
 }
 
-/* ---------- Table Styling ---------- */
 table {
-  width: 90%;
-  min-height: 100vh;   /* full page height */
-  margin: 0 auto 30px;
+  width: 95%;
+  max-width: 1300px;
+  margin: 15px auto;
   border-collapse: collapse;
   text-align: center;
+  background-color: #ffffff;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
 }
 
 th, td {
@@ -23,163 +25,192 @@ th, td {
 
 th {
   background-color: #a56b3b;
-  color: black;
+  color: #000;
+  font-size: 18px;
+  text-transform: uppercase;
 }
 
-td {
-  background-color: #e4b9a0;
+tr:nth-child(2) td {
+  background-color: #f2b57c;
+  font-weight: bold;
+  padding: 8px 0;
 }
 
-td img {
-  width: 80px;
-}
-
-table td a {
+td a {
   text-decoration: none;
-  color: #0c0b0b;
-  transition: color 0.3s;
+  color: #000;
+  display: inline-block;
+  padding: 6px 15px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
 }
 
-table td a:hover {
-  color: aqua;
-  text-decoration: none;
-  transition: 0.3s;
+td a:hover {
+  background-color: #2c3e50;
+  color: #fff;
 }
 
-/* ---------- Sidebar ---------- */
 .sidebar {
-  width: 20%;
-  background-color: #f0c9aa;
-  text-align: left;
-  padding-left: 15px;
+  background-color: #f7d8b4;
+  width: 200px;
+  vertical-align: top;
+  font-weight: bold;
 }
 
 .sidebar a {
   display: block;
-  color: #2c1a07;
-  font-weight: bold;
+  color: #000;
+  margin: 8px 0;
+  text-decoration: none;
+  font-size: 15px;
 }
 
 .sidebar a:hover {
-  color: #009999;
+  color: #2c3e50;
 }
 
-/* ---------- Registration Page Content ---------- */
 .content {
+  background-color: #fffaf3;
   text-align: left;
-  padding: 30px 60px;
-  background-color: #fbe9d8;
-  min-height: 500px;   /* ensure tall content area */
-  vertical-align: top;
+  padding: 25px 40px;
+  font-size: 17px;
+  line-height: 1.4;
 }
 
+.content h1,
 .content h2 {
   text-align: center;
-  color: #4b2e05;
-  text-transform: uppercase;
-  margin-bottom: 25px;
-  border-bottom: 2px solid #a56b3b;
+  color: #2c3e50;
+  margin-bottom: 18px;
+  font-size: 22px;
+}
+
+.reg-form {
   display: inline-block;
-  padding-bottom: 6px;
+  text-align: left;
+  width: 100%;
+  max-width: 600px;
+  background: #ffffff;
+  padding: 25px 30px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 }
 
-.content label {
-  display: block;
+.reg-form label {
   font-weight: bold;
-  color: #3b2a1a;
-  margin-top: 15px;
-}
-
-.content input[type="text"],
-.content input[type="password"],
-.content input[type="email"],
-.content select,
-.content textarea {
-  width: 85%;
-  padding: 10px;
-  border: 1px solid #a56b3b;
-  border-radius: 6px;
-  margin-top: 6px;
-  background-color: #fff8f3;
+  display: block;
+  margin-bottom: 5px;
   font-size: 15px;
 }
 
-.content input[type="radio"],
-.content input[type="checkbox"] {
-  margin-right: 6px;
+.reg-form input[type="text"],
+.reg-form input[type="password"],
+.reg-form textarea,
+.reg-form select {
+  width: 100%;
+  padding: 9px;
+  margin-bottom: 12px;
+  border: 1px solid #999;
+  border-radius: 5px;
+  font-size: 15px;
+  background-color: #fff;
+  box-sizing: border-box;
 }
 
-.content textarea {
+.reg-form textarea {
   resize: none;
-  height: 90px;
+  height: 70px;
 }
 
-.content input[type="submit"] {
-  background-color: #a56b3b;
+.reg-form input[type="radio"],
+.reg-form input[type="checkbox"] {
+  margin-right: 6px;
+  transform: scale(1.1);
+}
+
+.reg-form input[type="submit"] {
+  background-color: #2c3e50;
   color: white;
   border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-top: 25px;
-  transition: background-color 0.3s;
-  font-size: 15px;
-}
-
-.content input[type="submit"]:hover {
-  background-color: #875c2b;
-}
-
-/* ---------- Cart Buttons (Optional, Shared with Other Pages) ---------- */
-.cart-btn {
-  background-color: #e8df3a;
-  color: #fff;
-  border: none;
-  padding: 8px 12px;
-  cursor: pointer;
+  padding: 10px 25px;
   border-radius: 5px;
-  transition: background-color 0.3s;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
-.cart-btn:hover {
-  background-color: #e0f44c;
+.reg-form input[type="submit"]:hover {
+  background-color: #1a252f;
 }
 
-/* ---------- Responsive Design ---------- */
-@media screen and (max-width: 768px) {
-  table, tr, th, td {
+.dob-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.dob-group select {
+  flex: 1;
+  min-width: 100px;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.home-content {
+  text-align: left;
+  padding: 35px 45px;
+  background-color: #fffaf3;
+}
+
+.home-content h1 {
+  text-align: center;
+  font-size: 26px;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.home-content p {
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+.home-image {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.home-image img {
+  width: 90%;
+  max-width: 700px;
+  border-radius: 6px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 900px) {
+  table, tr, td, th {
     display: block;
     width: 100%;
   }
 
-  tr {
-    margin-bottom: 15px;
+  .sidebar {
+    width: 100%;
+    text-align: center;
   }
 
-  th {
-    text-align: left;
-    background-color: #a56b3b;
-    color: white;
+  .content,
+  .home-content {
+    padding: 20px;
   }
 
-  td {
-    text-align: left;
-    border-bottom: 1px solid #ddd;
+  .reg-form {
+    width: 95%;
+    padding: 20px;
   }
 
-  td img {
-    margin-bottom: 10px;
-  }
-
-  .content {
-    padding: 15px;
-  }
-
-  .content input[type="text"],
-  .content input[type="password"],
-  .content input[type="email"],
-  .content select,
-  .content textarea {
+  .home-image img {
     width: 100%;
   }
 }
