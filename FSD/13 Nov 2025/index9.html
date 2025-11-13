@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Dashboard</title>
+  <link rel="stylesheet" href="bootstrap.min.css">
+
+  <style>
+    .sidebar {
+      min-height: 100vh;
+      background: #343a40;
+    }
+    .sidebar a {
+      color: #fff;
+      padding: 12px;
+      display: block;
+      text-decoration: none;
+    }
+    .sidebar a:hover {
+      background: #495057;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <!-- Sidebar -->
+    <div class="col-md-3 col-lg-2 sidebar">
+      <h4 class="text-white text-center py-3">Dashboard</h4>
+      <a href="#">Home</a>
+      <a href="#">Users</a>
+      <a href="#">Reports</a>
+      <a href="#">Settings</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="col-md-9 col-lg-10 p-4">
+
+      <h3>Dashboard Overview</h3>
+
+      <!-- Simple Cards -->
+      <div class="row mt-4 g-3">
+        <div class="col-md-4">
+          <div class="card p-3">
+            <h6>Total Users</h6>
+            <h3>1200</h3>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card p-3">
+            <h6>Active Users</h6>
+            <h3>890</h3>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card p-3">
+            <h6>New Signups</h6>
+            <h3>45</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Simple Table -->
+      <div class="card mt-4 p-3">
+        <h5>Recent Users</h5>
+
+        <table class="table table-striped mt-3">
+          <thead class="table-dark">
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Joined</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ravi Kumar</td>
+              <td>ravi@example.com</td>
+              <td>2025-11-10</td>
+            </tr>
+
+            <tr>
+              <td>Neha Sharma</td>
+              <td>neha@example.com</td>
+              <td>2025-11-08</td>
+            </tr>
+
+            <tr>
+              <td>Arun Singh</td>
+              <td>arun@example.com</td>
+              <td>2025-11-05</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="bootstrap.bundle.min.js"></script>
+</body>
+</html>

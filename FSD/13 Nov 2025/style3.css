@@ -1,0 +1,79 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #c6bcbc;
+  margin: 0;
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.product1 {
+  display: flex;
+  gap: 20px;
+  background: rgb(204, 121, 121);
+  padding: 15px;
+  border-radius: 8px;
+  width: 600px;
+  margin: 15px auto;
+  border: 1px solid #ccc;
+}
+
+.product2 {
+  display: flex;
+  gap: 20px;
+  background: rgb(185, 81, 33);
+  padding: 15px;
+  border-radius: 8px;
+  width: 600px;
+  margin: 15px auto;
+  border: 1px solid #ccc;
+}
+
+.product3 {
+  display: flex;
+  gap: 20px;
+  background: rgb(247, 78, 78);
+  padding: 15px;
+  border-radius: 8px;
+  width: 600px;
+  margin: 15px auto;
+  border: 1px solid #ccc;
+}
+
+.product1 img {
+  width: 150px;
+  border-radius: 6px;
+}
+.product2 img {
+  width: 150px;
+  border-radius: 6px;
+}
+.product3 img {
+  width: 150px;
+  border-radius: 6px;
+}
+.details h2 {
+  margin: 0;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #0056b3;
+}
