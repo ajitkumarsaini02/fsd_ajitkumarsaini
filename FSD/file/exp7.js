@@ -29,4 +29,5 @@ function validateForm() {
 
   alert("✅ Registration Successful!");
   return true;
+  
 }
