@@ -2,21 +2,23 @@
 #include<climits>
 using namespace std;
 
-bool isPrime(int n) {
-    if (n <= 1) return false;
-    for (int i = 2; i * i <= n; i++)
-        if (n % i == 0) return false;
-    return true;
-}
-
-int nearestPrime(int n) {
-    while (n > 1 && !isPrime(n))
-        n--;
-    return n;
+int findNearestPrime(int n) {
+    for (int num = n; num > 1; num--) {
+        bool isPrime = true;
+        for (int i = 2; i * i <= num; i++) {
+            if (num % i == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        if (isPrime)
+            return num;
+    }
+    return 2;
 }
 
 int DivisionHash(int n, int size) {
-    int p = nearestPrime(size);
+    int p = findNearestPrime(size);
     return n % p;
 }
 
@@ -31,7 +33,7 @@ int main() {
 
     int index = DivisionHash(key, size);
 
-    cout << "Nearest prime used: " << nearestPrime(size) << endl;
+    cout << "Nearest prime used: " << findNearestPrime(size) << endl;
     cout << "Hash index = " << index << endl;
 
     return 0;
