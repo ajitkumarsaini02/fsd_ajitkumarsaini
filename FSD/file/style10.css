@@ -1,0 +1,83 @@
+body {
+    font-family: "Segoe UI", sans-serif;
+    background: linear-gradient(120deg, #7abaff, #eef7ff);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 460px;
+    background: white;
+    padding: 20px 25px;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.18);
+}
+
+h1 { text-align:center; margin-top:0; font-size:28px; color:#1e3a56; }
+
+.input-box { display:flex; gap:10px; margin-top:15px; }
+#taskInput { flex:1; padding:10px; border:2px solid #bcd3f3; border-radius:6px; font-size:15px; }
+#addBtn { width:45px; font-size:20px; border:none; border-radius:6px; background:#1e67d2; color:white; cursor:pointer; }
+#addBtn:hover { background:#0f4fa4; }
+
+.task-info { display:flex; justify-content:space-between; align-items:center; margin:10px 3px; font-size:15px; color:#1e3a56; }
+.controls { display:flex; align-items:center; gap:10px; }
+.filters { display:flex; gap:6px; }
+.filterBtn { border:1px solid #cddff9; background:#fff; padding:6px 8px; border-radius:6px; cursor:pointer; }
+.filterBtn.active { background:#1e67d2; color:white; border-color:#1456a6; }
+
+.clearAll { background:#d11a2a; padding:6px 10px; border:none; color:white; border-radius:6px; cursor:pointer; }
+.clearAll:hover { background:#a0101d; }
+
+/* List */
+ul { padding:0; margin-top:15px; }
+
+/* Each Task */
+li {
+    list-style:none;
+    padding:10px 12px;
+    background:#f2f7ff;
+    border-left:5px solid #1e67d2;
+    border-radius:6px;
+    margin-bottom:10px;
+    font-size:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+}
+
+/* text + edit input */
+.task-left { display:flex; align-items:center; gap:10px; flex:1; }
+.task-text { flex:1; white-space:pre-wrap; word-break:break-word; }
+.task-text.editing { display:none; }
+.task-edit-input { display:none; flex:1; padding:6px; border:1px solid #cddff9; border-radius:4px; }
+.task-edit-input.active { display:block; }
+
+/* Completed Task */
+.completed .task-text { text-decoration:line-through; color:gray; }
+.completed { border-left-color:green !important; }
+
+/* Buttons inside task */
+.task-buttons button {
+    margin-left:6px;
+    padding:6px 8px;
+    border:none;
+    border-radius:4px;
+    cursor:pointer;
+    color:white;
+    font-size:13px;
+}
+.editBtn { background:#f5a623; }
+.editBtn:hover { background:#c87e08; }
+.delBtn { background:#d11a2a; }
+.delBtn:hover { background:#960c17; }
+.doneBtn { background:#1f8a3d; }
+.doneBtn:hover { background:#106426; }
+
+@media (max-width:520px){
+    .container { width:92%; }
+}

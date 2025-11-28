@@ -1,0 +1,87 @@
+body {
+    background-image: url("page-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #f0f0f0;
+    background-color: #1e3d59;
+}
+
+header h1 {
+    font-family: "Georgia", serif;
+    color: #FFD700;
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+header nav {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #555;
+}
+
+.content-box {
+    background-image: url("element-bg.png");
+    min-height: 120px;
+    margin-bottom: 25px;
+    padding: 20px;
+    border: 1px solid #777;
+    border-radius: 5px;
+    background-color: #ffc300;
+}
+
+.repeat-x-bg {
+    background-repeat: repeat-x;
+    background-size: auto 120px;
+}
+
+.no-repeat-bg {
+    background-repeat: no-repeat;
+    background-position: center right;
+}
+
+.content-box h2 {
+    font-family: "Verdana", sans-serif;
+    color: #333;
+    font-size: 24px;
+    border-bottom: 1px dashed #333;
+    padding-bottom: 5px;
+}
+
+.content-box p {
+    font-family: "Times New Roman", serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+}
+
+a:link {
+    color: #00BFFF;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #8A2BE2;
+}
+
+a:hover {
+    color: #FF4500;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+a:active {
+    color: #32CD32;
+}
+
+footer {
+    text-align: center;
+    padding-top: 20px;
+    margin-top: 30px;
+    border-top: 2px solid #555;
+}

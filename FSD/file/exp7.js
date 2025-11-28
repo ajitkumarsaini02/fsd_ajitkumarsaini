@@ -6,28 +6,27 @@ function validateForm() {
 
   const nameRegex = /^[A-Za-z ]+$/;
   if (name.length < 6 || !nameRegex.test(name)) {
-    alert("❌ Name must contain only alphabets and be at least 6 characters long.");
+    alert("Name must contain only alphabets, spaces and be at least 6 characters long.");
     return false;
   }
 
   if (password.length < 6) {
-    alert("❌ Password must be at least 6 characters long.");
+    alert("Password must be at least 6 characters long.");
     return false;
   }
 
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}$/;
   if (!emailRegex.test(email)) {
-    alert("❌ Please enter a valid E-mail ID (e.g. name@domain.com).");
+    alert("Please enter a valid E-mail ID (example: name@domain.com).");
     return false;
   }
 
   const phoneRegex = /^[0-9]{10}$/;
   if (!phoneRegex.test(phone)) {
-    alert("❌ Phone number must contain exactly 10 digits.");
+    alert("Phone number must contain exactly 10 digits.");
     return false;
   }
 
-  alert("✅ Registration Successful!");
+  alert("Registration Successful!");
   return true;
-  
 }

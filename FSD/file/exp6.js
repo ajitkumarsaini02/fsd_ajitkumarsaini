@@ -4,19 +4,21 @@ function validateForm() {
 
   const nameRegex = /^[A-Za-z ]+$/;
 
-  if (name.length < 6 || !nameRegex.test(name)) {
-    alert("❌ Name must contain only alphabets and be at least 6 characters long.");
+  if (name.length < 6) {
+    alert("Name must be at least 6 characters long.");
     return false;
   }
 
-  // ✅ Print name in console
-  console.log("Entered Name:", name);
+  if (!nameRegex.test(name)) {
+    alert("Name should contain alphabets and spaces only.");
+    return false;
+  }
 
   if (password.length < 6) {
-    alert("❌ Password must be at least 6 characters long.");
+    alert("Password must be at least 6 characters long.");
     return false;
   }
 
-  alert("✅ Registration Successful!");
+  alert("Registration Successful!");
   return true;
 }
