@@ -1,13 +1,11 @@
 #include<iostream>
 #include<stdlib.h>
 using namespace std;
-
 struct node {
     char data;
     struct node *left;
     struct node *right;
 };
-
 node* MakeNode(char T) {
     node *p;
     p = (node*) malloc(sizeof(node));
@@ -16,7 +14,6 @@ node* MakeNode(char T) {
     p->right = NULL;
     return p;
 }
-
 void PreOrder(node *T){
     if (T != NULL) {
         cout << T->data << ", ";
@@ -24,7 +21,6 @@ void PreOrder(node *T){
         PreOrder(T->right);
     }
 }
-
 void InOrder(node *T){
     if (T != NULL) {
         InOrder(T->left);
@@ -32,7 +28,6 @@ void InOrder(node *T){
         InOrder(T->right);
     }
 }
-
 void PostOrder(node *T){
     if (T != NULL) {
         PostOrder(T->left);
@@ -40,13 +35,12 @@ void PostOrder(node *T){
         cout << T->data << ", ";
     }
 }
-
 void createNode(node *T){
     int choice;
     cout<<"Wheather the left of "<<T->data<<" Exists?(0/1): ";
     cin>>choice;
     if(choice==1){
-        int x;
+        char x;
         cout<<"Enter the left child: "<<T->data<<": ";
         cin>>x;
         node *p=MakeNode(x);
@@ -56,7 +50,7 @@ void createNode(node *T){
     cout<<"Wheather the right of "<<T->data<<" Exists?(0/1):  ";
     cin>>choice;
     if(choice==1){
-        int x;
+        char x;
         cout<<"Enter the right child "<<T->data<<": ";
         cin>>x;
         node *p=MakeNode(x);
@@ -73,7 +67,6 @@ int CountNodes(node *T){
         return p;
     }
 }
-
 int CountLeafs(node *T){
     if(T==NULL){
         return 0;
@@ -86,7 +79,6 @@ int CountLeafs(node *T){
         return p;
     }
 }
-
 int CountN1(node *T){
     if(T==NULL){
         return 0;
@@ -103,7 +95,6 @@ int CountN1(node *T){
         return p;
     }
 }
-
 int CountN2(node *T){
     if(T==NULL){
         return 0;
@@ -120,24 +111,19 @@ int CountN2(node *T){
         return p;
     }
 }
-
 int main() {
     node *T;
-    int x;
+    char x;
     cout<<"Enter the data of root node: ";
     cin>>x;
     T = MakeNode(x);
     createNode(T);
-
     cout << "PreOrder Traversal: ";
     PreOrder(T);
-
     cout << "\nInOrder Traversal: ";
     InOrder(T);
-
     cout << "\nPostOrder Traversal: ";
     PostOrder(T);
-
     cout << "\n\nCounts:\n";
     cout << "Total nodes: " << CountNodes(T) << "\n";
     cout << "Leaf nodes: "  << CountLeafs(T) << "\n";

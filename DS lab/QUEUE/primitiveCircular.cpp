@@ -41,8 +41,23 @@ char DeQueue(){
         return x;
     }
 }
+void Display() {
+    if (IsEmpty()) {
+        cout << "Queue is Empty\n";
+        return;
+    }
 
-int main(){
+    cout << "Queue: ";
+
+    int i = (CQ.Front + 1) % MAXQUEUE;
+    while (i != (CQ.Rear + 1) % MAXQUEUE) {
+        cout << CQ.item[i] << " ";
+        i = (i + 1) % MAXQUEUE;
+    }
+
+    cout << endl;
+}
+int main() {
     Initialize();
     EnQueue('A');
     EnQueue('B');
@@ -50,18 +65,19 @@ int main(){
     EnQueue('D');
     EnQueue('E');
     EnQueue('F');
-    char x=DeQueue();
-    cout<<"Deleted item :"<<x<<endl;
-    x=DeQueue();
-    cout<<"Deleted item :"<<x<<endl;
-    x=DeQueue();
-    cout<<"Deleted item :"<<x<<endl;
-    x=DeQueue();
-    cout<<"Deleted item :"<<x<<endl;
-    x=DeQueue();
-    cout<<"Deleted item :"<<x<<endl;
-    x=DeQueue();
-    cout<<"Deleted item :"<<x<<endl;
-    x=DeQueue();
-    cout<<"Deleted item :"<<x<<endl;
+    cout << "Initial Queue:\n";
+    Display();
+    cout << "Deleted item: " << DeQueue() << endl;
+    Display();
+    cout << "Deleted item: " << DeQueue() << endl;
+    Display();
+    cout << "Deleted item: " << DeQueue() << endl;
+    Display();
+    cout << "Deleted item: " << DeQueue() << endl;
+    Display();
+    cout << "Deleted item: " << DeQueue() << endl;
+    Display();
+    cout << "Deleted item: " << DeQueue() << endl;
+    Display();
+    return 0;
 }

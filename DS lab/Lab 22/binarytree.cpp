@@ -43,18 +43,14 @@ void PostOrder(node *T){
 
 int main() {
     node *T;
-
     T = MakeNode('A');
     T->left = MakeNode('B');
     T->right = MakeNode('C');
     T->left->left = MakeNode('D');
-
     cout << "PreOrder Traversal: ";
     PreOrder(T);
-
     cout << "\nInOrder Traversal: ";
     InOrder(T);
-
     cout << "\nPostOrder Traversal: ";
     PostOrder(T);
 
