@@ -1,28 +1,33 @@
 // Singly Linked List (All Basic Operations)
-#include <stdio.h>
-#include <stdlib.h>
+
+#include <iostream>
+#include <cstdlib>
+using namespace std;
 
 struct Node {
     char info;
-    struct Node *Next;
+    Node *Next;
 };
 
-struct Node *Start = NULL;
+Node *Start = NULL;
 
-struct Node* GetNode() {
-    struct Node *p = (struct Node*) malloc(sizeof(struct Node));
+/* Get new node */
+Node* GetNode() {
+    Node *p = (Node*) malloc(sizeof(Node));
     return p;
 }
 
+/* Insert at Beginning */
 void InsBeg(char x) {
-    struct Node *p = GetNode();
+    Node *p = GetNode();
     p->info = x;
     p->Next = Start;
     Start = p;
 }
 
+/* Insert at End */
 void InsEnd(char x) {
-    struct Node *p = GetNode();
+    Node *p = GetNode();
     p->info = x;
     p->Next = NULL;
 
@@ -31,67 +36,72 @@ void InsEnd(char x) {
         return;
     }
 
-    struct Node *q = Start;
+    Node *q = Start;
     while (q->Next != NULL) {
         q = q->Next;
     }
     q->Next = p;
 }
 
-void InsAfter(struct Node *q, char x) {
+/* Insert After a Given Node */
+void InsAfter(Node *q, char x) {
     if (q == NULL) {
-        printf("Given node is NULL!\n");
+        cout << "Given node is NULL!" << endl;
         return;
     }
-    struct Node *p = GetNode();
+    Node *p = GetNode();
     p->info = x;
     p->Next = q->Next;
     q->Next = p;
 }
 
+/* Traverse the List */
 void Traverse() {
-    struct Node *p = Start;
+    Node *p = Start;
     while (p != NULL) {
-        printf("%c ", p->info);
+        cout << p->info << " ";
         p = p->Next;
     }
-    printf("\n");
+    cout << endl;
 }
 
+/* Delete from Beginning */
 char DelBeg() {
     if (Start == NULL) {
-        printf("List is empty!\n");
+        cout << "List is empty!" << endl;
         exit(1);
     }
 
-    struct Node *p = Start;
+    Node *p = Start;
     char x = p->info;
     Start = Start->Next;
     free(p);
     return x;
 }
 
-char DelAfter(struct Node *q) {
+/* Delete After a Given Node */
+char DelAfter(Node *q) {
     if (q == NULL || q->Next == NULL) {
-        printf("No node exists after the given node!\n");
+        cout << "No node exists after the given node!" << endl;
         exit(1);
     }
 
-    struct Node *r = q->Next;
+    Node *r = q->Next;
     char x = r->info;
     q->Next = r->Next;
     free(r);
     return x;
 }
 
+/* Delete from End */
 char DelEnd() {
     if (Start == NULL) {
-        printf("List is empty!\n");
+        cout << "List is empty!" << endl;
         exit(1);
     }
 
-    struct Node *p = Start;
-    struct Node *c = NULL;
+    Node *p = Start;
+    Node *c = NULL;
 
     while (p->Next != NULL) {
         c = p;
@@ -108,6 +118,7 @@ char DelEnd() {
     return x;
 }
 
+/* Main Function */
 int main() {
     Start = NULL;
 
@@ -117,25 +128,25 @@ int main() {
     InsBeg('D');
     InsBeg('E');
 
-    printf("List after InsBeg: ");
+    cout << "List after InsBeg: ";
     Traverse();
 
     InsEnd('X');
     InsEnd('Y');
     InsEnd('Z');
-    printf("List after InsEnd: ");
+    cout << "List after InsEnd: ";
     Traverse();
 
-    printf("Deleted element (DelBeg): %c\n", DelBeg());
-    printf("List after DelBeg: ");
+    cout << "Deleted element (DelBeg): " << DelBeg() << endl;
+    cout << "List after DelBeg: ";
     Traverse();
 
-    printf("Deleted element (DelEnd): %c\n", DelEnd());
-    printf("List after DelEnd: ");
+    cout << "Deleted element (DelEnd): " << DelEnd() << endl;
+    cout << "List after DelEnd: ";
     Traverse();
 
-    printf("Deleted element (DelAfter Start): %c\n", DelAfter(Start));
-    printf("List after DelAfter: ");
+    cout << "Deleted element (DelAfter Start): " << DelAfter(Start) << endl;
+    cout << "List after DelAfter: ";
     Traverse();
 
     return 0;

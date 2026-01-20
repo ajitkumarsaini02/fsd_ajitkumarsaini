@@ -1,6 +1,8 @@
 // Priority Queue (Array Implementation)
-#include <stdio.h>
-#include <stdlib.h>
+
+#include <iostream>
+using namespace std;
+
 #define MAX 10
 
 struct PriorityQueue {
@@ -9,28 +11,28 @@ struct PriorityQueue {
     int rear;
 };
 
-struct PriorityQueue PQ;
+PriorityQueue PQ;
 
-// Function to initialize the queue
+/* Initialize the queue */
 void Initialize() {
     PQ.front = -1;
-    PQ.rear = -1;
+    PQ.rear  = -1;
 }
 
-// Function to check if queue is empty
+/* Check if queue is empty */
 int IsEmpty() {
     return (PQ.front == -1);
 }
 
-// Function to check if queue is full
+/* Check if queue is full */
 int IsFull() {
     return (PQ.rear == MAX - 1);
 }
 
-// Function to insert element in priority order (ascending)
+/* EnQueue operation (ascending priority: smaller value = higher priority) */
 void EnQueue(int x) {
     if (IsFull()) {
-        printf("Priority Queue Overflow\n");
+        cout << "Priority Queue Overflow" << endl;
         return;
     }
 
@@ -38,6 +40,7 @@ void EnQueue(int x) {
     if (PQ.front == -1) {
         PQ.front = PQ.rear = 0;
         PQ.data[PQ.rear] = x;
+        cout << "Inserted: " << x << endl;
         return;
     }
 
@@ -50,39 +53,42 @@ void EnQueue(int x) {
     PQ.data[i + 1] = x;
     PQ.rear++;
 
-    printf("Inserted: %d\n", x);
+    cout << "Inserted: " << x << endl;
 }
 
-// Function to delete the element with highest priority (smallest number)
+/* DeQueue operation (remove highest priority element) */
 int DeQueue() {
     if (IsEmpty()) {
-        printf("Priority Queue Underflow\n");
+        cout << "Priority Queue Underflow" << endl;
         return -1;
     }
 
     int x = PQ.data[PQ.front];
     PQ.front++;
 
-    if (PQ.front > PQ.rear)
-        PQ.front = PQ.rear = -1;  // Reset queue if empty
+    // Reset when queue becomes empty
+    if (PQ.front > PQ.rear) {
+        PQ.front = PQ.rear = -1;
+    }
 
     return x;
 }
 
-// Function to display the queue
+/* Display the queue */
 void Display() {
     if (IsEmpty()) {
-        printf("Priority Queue is empty\n");
+        cout << "Priority Queue is empty" << endl;
         return;
     }
 
-    printf("Priority Queue: ");
+    cout << "Priority Queue: ";
     for (int i = PQ.front; i <= PQ.rear; i++) {
-        printf("%d ", PQ.data[i]);
+        cout << PQ.data[i] << " ";
     }
-    printf("\n");
+    cout << endl;
 }
 
+/* Main Function */
 int main() {
     Initialize();
 
@@ -94,10 +100,10 @@ int main() {
 
     Display();
 
-    printf("Deleted: %d\n", DeQueue());
+    cout << "Deleted: " << DeQueue() << endl;
     Display();
 
-    printf("Deleted: %d\n", DeQueue());
+    cout << "Deleted: " << DeQueue() << endl;
     Display();
 
     return 0;

@@ -1,28 +1,30 @@
 // Array Implementation of Double-Ended Queue (Deque)
-#include <stdio.h>
-#include <stdlib.h>
+
+#include <iostream>
+using namespace std;
+
 #define MAX 5
 
 int deque[MAX];
 int front = -1, rear = -1;
 
-// Function to check if deque is full
+/* Check if deque is full */
 int isFull() {
     return ((front == 0 && rear == MAX - 1) || (front == rear + 1));
 }
 
-// Function to check if deque is empty
+/* Check if deque is empty */
 int isEmpty() {
     return (front == -1);
 }
 
-// Insert element at the front
+/* Insert element at the front */
 void insertFront(int x) {
     if (isFull()) {
-        printf("Deque Overflow\n");
+        cout << "Deque Overflow" << endl;
         return;
     }
-    if (front == -1) { // Empty deque
+    if (front == -1) {           // Empty deque
         front = rear = 0;
     } else if (front == 0) {
         front = MAX - 1;
@@ -30,16 +32,16 @@ void insertFront(int x) {
         front--;
     }
     deque[front] = x;
-    printf("Inserted %d at front\n", x);
+    cout << "Inserted " << x << " at front" << endl;
 }
 
-// Insert element at the rear
+/* Insert element at the rear */
 void insertRear(int x) {
     if (isFull()) {
-        printf("Deque Overflow\n");
+        cout << "Deque Overflow" << endl;
         return;
     }
-    if (front == -1) { // Empty deque
+    if (front == -1) {           // Empty deque
         front = rear = 0;
     } else if (rear == MAX - 1) {
         rear = 0;
@@ -47,16 +49,17 @@ void insertRear(int x) {
         rear++;
     }
     deque[rear] = x;
-    printf("Inserted %d at rear\n", x);
+    cout << "Inserted " << x << " at rear" << endl;
 }
 
-// Delete element from the front
+/* Delete element from the front */
 void deleteFront() {
     if (isEmpty()) {
-        printf("Deque Underflow\n");
+        cout << "Deque Underflow" << endl;
         return;
     }
-    printf("Deleted %d from front\n", deque[front]);
+    cout << "Deleted " << deque[front] << " from front" << endl;
+
     if (front == rear) {
         front = rear = -1;
     } else if (front == MAX - 1) {
@@ -66,13 +69,14 @@ void deleteFront() {
     }
 }
 
-// Delete element from the rear
+/* Delete element from the rear */
 void deleteRear() {
     if (isEmpty()) {
-        printf("Deque Underflow\n");
+        cout << "Deque Underflow" << endl;
         return;
     }
-    printf("Deleted %d from rear\n", deque[rear]);
+    cout << "Deleted " << deque[rear] << " from rear" << endl;
+
     if (front == rear) {
         front = rear = -1;
     } else if (rear == 0) {
@@ -82,24 +86,24 @@ void deleteRear() {
     }
 }
 
-// Display all elements in deque
+/* Display all elements */
 void display() {
     if (isEmpty()) {
-        printf("Deque is empty\n");
+        cout << "Deque is empty" << endl;
         return;
     }
-    printf("Deque elements: ");
+    cout << "Deque elements: ";
     int i = front;
     while (1) {
-        printf("%d ", deque[i]);
+        cout << deque[i] << " ";
         if (i == rear)
             break;
         i = (i + 1) % MAX;
     }
-    printf("\n");
+    cout << endl;
 }
 
-// Main function
+/* Main Function */
 int main() {
     insertRear(10);
     insertRear(20);

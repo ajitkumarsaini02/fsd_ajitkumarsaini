@@ -1,5 +1,9 @@
-#include <stdio.h>
-#include <stdlib.h>
+// Check for Balanced Parentheses using Stack
+
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
 #define STACKSIZE 10
 
 // Stack structure
@@ -8,27 +12,30 @@ struct stack {
     int top;
 } S;
 
-// Stack functions
+/* Initialize Stack */
 void Initialize() {
     S.top = -1;
 }
 
+/* Check if Stack is Empty */
 int IsEmpty() {
     return (S.top == -1);
 }
 
+/* Push Operation */
 void push(char x) {
     if (S.top == STACKSIZE - 1) {
-        printf("Stack overflow\n");
+        cout << "Stack overflow" << endl;
         exit(1);
     }
     S.top++;
     S.item[S.top] = x;
 }
 
+/* Pop Operation */
 char pop() {
     if (IsEmpty()) {
-        printf("Stack underflow\n");
+        cout << "Stack underflow" << endl;
         exit(1);
     }
     char x = S.item[S.top];
@@ -36,7 +43,7 @@ char pop() {
     return x;
 }
 
-// Function to check balanced parentheses
+/* Function to check balanced parentheses */
 void balanceParenthesis(char exp[]) {
     Initialize();
     int i = 0, flag = 0;
@@ -48,7 +55,7 @@ void balanceParenthesis(char exp[]) {
             if (!IsEmpty()) {
                 pop();
             } else {
-                flag = 1; // Extra closing parenthesis
+                flag = 1;   // Extra closing parenthesis
                 break;
             }
         }
@@ -57,19 +64,20 @@ void balanceParenthesis(char exp[]) {
 
     if (IsEmpty()) {
         if (flag == 1)
-            printf("Invalid Expression\n");
+            cout << "Invalid Expression" << endl;
         else
-            printf("Valid Expression\n");
+            cout << "Valid Expression" << endl;
     } else {
-        printf("Invalid Expression\n");
+        cout << "Invalid Expression" << endl;
     }
 }
 
-// Main function
+/* Main Function */
 int main() {
     char exp[100];
-    printf("Enter the expression: ");
-    scanf("%s", exp);
+
+    cout << "Enter the expression: ";
+    cin >> exp;
 
     balanceParenthesis(exp);
 

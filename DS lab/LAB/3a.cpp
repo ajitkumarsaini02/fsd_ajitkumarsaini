@@ -1,5 +1,8 @@
 // Linear Queue using Array
-#include <stdio.h>
+
+#include <iostream>
+using namespace std;
+
 #define SIZE 5
 
 int queue[SIZE];
@@ -9,7 +12,7 @@ int rear = -1;
 /* EnQueue Operation */
 void EnQueue(int x) {
     if (rear == SIZE - 1) {
-        printf("Queue Overflow\n");
+        cout << "Queue Overflow" << endl;
         return;
     }
 
@@ -19,7 +22,7 @@ void EnQueue(int x) {
 
     rear++;
     queue[rear] = x;
-    printf("%d inserted into queue\n", x);
+    cout << x << " inserted into queue" << endl;
 }
 
 /* DeQueue Operation */
@@ -27,7 +30,7 @@ int DeQueue() {
     int item;
 
     if (front == -1 || front > rear) {
-        printf("Queue Underflow\n");
+        cout << "Queue Underflow" << endl;
         return -1;
     }
 
@@ -40,15 +43,15 @@ int DeQueue() {
 /* Display Operation */
 void Display() {
     if (front == -1 || front > rear) {
-        printf("Queue is empty\n");
+        cout << "Queue is empty" << endl;
         return;
     }
 
-    printf("Queue elements: ");
+    cout << "Queue elements: ";
     for (int i = front; i <= rear; i++) {
-        printf("%d ", queue[i]);
+        cout << queue[i] << " ";
     }
-    printf("\n");
+    cout << endl;
 }
 
 /* Main Function */
@@ -59,15 +62,15 @@ int main() {
     EnQueue(20);
     EnQueue(30);
 
-    printf("\nQueue before deletion:\n");
+    cout << "\nQueue before deletion:" << endl;
     Display();
 
     deletedItem = DeQueue();
     if (deletedItem != -1) {
-        printf("Deleted element: %d\n", deletedItem);
+        cout << "Deleted element: " << deletedItem << endl;
     }
 
-    printf("\nQueue after deletion:\n");
+    cout << "\nQueue after deletion:" << endl;
     Display();
 
     return 0;

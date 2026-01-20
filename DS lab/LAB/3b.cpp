@@ -1,11 +1,14 @@
-//  Circular Queue using Array
-#include <stdio.h>
-#include <stdlib.h>
-#define MAX 5   
+// Circular Queue using Array
+
+#include <iostream>
+using namespace std;
+
+#define MAX 5
 
 int queue[MAX];
 int front = -1, rear = -1;
 
+/* Check if Queue is Full */
 int isFull() {
     if ((front == 0 && rear == MAX - 1) || (front == rear + 1))
         return 1;
@@ -13,6 +16,7 @@ int isFull() {
         return 0;
 }
 
+/* Check if Queue is Empty */
 int isEmpty() {
     if (front == -1)
         return 1;
@@ -20,28 +24,31 @@ int isEmpty() {
         return 0;
 }
 
-// Function to insert an element
+/* EnQueue Operation */
 void EnQueue(int x) {
     if (isFull()) {
-        printf("Queue Overflow\n");
+        cout << "Queue Overflow" << endl;
         return;
     }
-    if (front == -1)  
+    if (front == -1)
         front = 0;
+
     rear = (rear + 1) % MAX;
     queue[rear] = x;
-    printf("Inserted -> %d\n", x);
+    cout << "Inserted -> " << x << endl;
 }
 
-// Function to delete an element
+/* DeQueue Operation */
 int DeQueue() {
     int x;
     if (isEmpty()) {
-        printf("Queue Underflow\n");
+        cout << "Queue Underflow" << endl;
         return -1;
     }
+
     x = queue[front];
-    if (front == rear) {  
+
+    if (front == rear) {
         front = -1;
         rear = -1;
     } else {
@@ -50,25 +57,26 @@ int DeQueue() {
     return x;
 }
 
-// Function to display the queue
+/* Display Operation */
 void Display() {
     int i;
     if (isEmpty()) {
-        printf("Queue is empty\n");
+        cout << "Queue is empty" << endl;
         return;
     }
-    printf("Queue elements: ");
+
+    cout << "Queue elements: ";
     i = front;
     while (1) {
-        printf("%d ", queue[i]);
+        cout << queue[i] << " ";
         if (i == rear)
             break;
         i = (i + 1) % MAX;
     }
-    printf("\n");
+    cout << endl;
 }
 
-// Main function
+/* Main Function */
 int main() {
     EnQueue(10);
     EnQueue(20);
@@ -77,8 +85,8 @@ int main() {
     EnQueue(50);
     Display();
 
-    printf("Deleted -> %d\n", DeQueue());
-    printf("Deleted -> %d\n", DeQueue());
+    cout << "Deleted -> " << DeQueue() << endl;
+    cout << "Deleted -> " << DeQueue() << endl;
     Display();
 
     EnQueue(60);

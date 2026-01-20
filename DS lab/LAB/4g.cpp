@@ -1,23 +1,27 @@
 // Doubly Linked List Implementation
-#include <stdio.h>
-#include <stdlib.h>
+
+#include <iostream>
+#include <cstdlib>
+using namespace std;
 
 struct Node {
     int data;
-    struct Node* prev;
-    struct Node* next;
+    Node* prev;
+    Node* next;
 };
 
-struct Node* createNode(int x) {
-    struct Node* p = (struct Node*)malloc(sizeof(struct Node));
+/* Create new node */
+Node* createNode(int x) {
+    Node* p = (Node*) malloc(sizeof(Node));
     p->data = x;
     p->prev = NULL;
     p->next = NULL;
     return p;
 }
 
-void insertBeg(struct Node** start, int x) {
-    struct Node* p = createNode(x);
+/* Insert at beginning */
+void insertBeg(Node** start, int x) {
+    Node* p = createNode(x);
     if (*start == NULL)
         *start = p;
     else {
@@ -27,12 +31,13 @@ void insertBeg(struct Node** start, int x) {
     }
 }
 
-void insertEnd(struct Node** start, int x) {
-    struct Node* p = createNode(x);
+/* Insert at end */
+void insertEnd(Node** start, int x) {
+    Node* p = createNode(x);
     if (*start == NULL)
         *start = p;
     else {
-        struct Node* q = *start;
+        Node* q = *start;
         while (q->next != NULL)
             q = q->next;
         q->next = p;
@@ -40,10 +45,11 @@ void insertEnd(struct Node** start, int x) {
     }
 }
 
-void insertAfter(struct Node* q, int x) {
+/* Insert after a given node */
+void insertAfter(Node* q, int x) {
     if (q == NULL) return;
-    struct Node* p = createNode(x);
-    struct Node* r = q->next;
+    Node* p = createNode(x);
+    Node* r = q->next;
     p->prev = q;
     p->next = r;
     q->next = p;
@@ -51,10 +57,11 @@ void insertAfter(struct Node* q, int x) {
         r->prev = p;
 }
 
-void insertBefore(struct Node** start, struct Node* q, int x) {
+/* Insert before a given node */
+void insertBefore(Node** start, Node* q, int x) {
     if (q == NULL) return;
-    struct Node* p = createNode(x);
-    struct Node* r = q->prev;
+    Node* p = createNode(x);
+    Node* r = q->prev;
     p->next = q;
     p->prev = r;
     q->prev = p;
@@ -64,43 +71,50 @@ void insertBefore(struct Node** start, struct Node* q, int x) {
         *start = p;
 }
 
-void delBeg(struct Node** start) {
+/* Delete from beginning */
+void delBeg(Node** start) {
     if (*start == NULL) return;
-    struct Node* p = *start;
+    Node* p = *start;
     *start = (*start)->next;
     if (*start != NULL)
         (*start)->prev = NULL;
     free(p);
 }
 
-void delEnd(struct Node** start) {
+/* Delete from end */
+void delEnd(Node** start) {
     if (*start == NULL) return;
-    struct Node* q = *start;
+    Node* q = *start;
+
     if (q->next == NULL) {
         free(q);
         *start = NULL;
         return;
     }
+
     while (q->next != NULL)
         q = q->next;
+
     q->prev->next = NULL;
     free(q);
 }
 
-void delAfter(struct Node* q) {
+/* Delete after a given node */
+void delAfter(Node* q) {
     if (q == NULL || q->next == NULL) return;
-    struct Node* p = q->next;
-    struct Node* r = p->next;
+    Node* p = q->next;
+    Node* r = p->next;
     q->next = r;
     if (r != NULL)
         r->prev = q;
     free(p);
 }
 
-void delBefore(struct Node** start, struct Node* q) {
+/* Delete before a given node */
+void delBefore(Node** start, Node* q) {
     if (q == NULL || q->prev == NULL) return;
-    struct Node* p = q->prev;
-    struct Node* r = p->prev;
+    Node* p = q->prev;
+    Node* r = p->prev;
     q->prev = r;
     if (r != NULL)
         r->next = q;
@@ -109,29 +123,32 @@ void delBefore(struct Node** start, struct Node* q) {
     free(p);
 }
 
-void display(struct Node* start) {
-    struct Node* temp = start;
+/* Display forward */
+void display(Node* start) {
+    Node* temp = start;
     while (temp != NULL) {
-        printf("%d ", temp->data);
+        cout << temp->data << " ";
         temp = temp->next;
     }
-    printf("\n");
+    cout << endl;
 }
 
-void displayReverse(struct Node* start) {
+/* Display reverse */
+void displayReverse(Node* start) {
     if (start == NULL) return;
-    struct Node* temp = start;
+    Node* temp = start;
     while (temp->next != NULL)
         temp = temp->next;
     while (temp != NULL) {
-        printf("%d ", temp->data);
+        cout << temp->data << " ";
         temp = temp->prev;
     }
-    printf("\n");
+    cout << endl;
 }
 
-struct Node* findNode(struct Node* start, int value) {
-    struct Node* temp = start;
+/* Search a node */
+Node* findNode(Node* start, int value) {
+    Node* temp = start;
     while (temp != NULL) {
         if (temp->data == value)
             return temp;
@@ -140,8 +157,9 @@ struct Node* findNode(struct Node* start, int value) {
     return NULL;
 }
 
+/* Main Function */
 int main() {
-    struct Node* start = NULL;
+    Node* start = NULL;
 
     insertBeg(&start, 10);
     insertBeg(&start, 20);
@@ -149,44 +167,44 @@ int main() {
     insertEnd(&start, 30);
     insertEnd(&start, 40);
 
-    struct Node* node10 = findNode(start, 10);
+    Node* node10 = findNode(start, 10);
     insertAfter(node10, 25);
 
-    struct Node* node30 = findNode(start, 30);
+    Node* node30 = findNode(start, 30);
     insertBefore(&start, node30, 15);
 
-    printf("List after insertions (forward): ");
+    cout << "List after insertions (forward): ";
     display(start);
 
-    printf("List after insertions (reverse): ");
+    cout << "List after insertions (reverse): ";
     displayReverse(start);
 
     delBeg(&start);
     delEnd(&start);
 
-    struct Node* node20 = findNode(start, 20);
+    Node* node20 = findNode(start, 20);
     delAfter(node20);
 
-    struct Node* node15 = findNode(start, 15);
+    Node* node15 = findNode(start, 15);
     delBefore(&start, node15);
 
-    printf("List after deletions (forward): ");
+    cout << "List after deletions (forward): ";
     display(start);
 
-    printf("List after deletions (reverse): ");
+    cout << "List after deletions (reverse): ";
     displayReverse(start);
 
-    struct Node* found = findNode(start, 30);
+    Node* found = findNode(start, 30);
     if (found)
-        printf("Node with value 30 found.\n");
+        cout << "Node with value 30 found." << endl;
     else
-        printf("Node with value 30 not found.\n");
+        cout << "Node with value 30 not found." << endl;
 
     found = findNode(start, 100);
     if (found)
-        printf("Node with value 100 found.\n");
+        cout << "Node with value 100 found." << endl;
     else
-        printf("Node with value 100 not found.\n");
+        cout << "Node with value 100 not found." << endl;
 
     return 0;
 }

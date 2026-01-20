@@ -1,48 +1,53 @@
 // Polynomial Addition, Subtraction & Multiplication using Linked List
-#include <stdio.h>
-#include <stdlib.h>
+
+#include <iostream>
+#include <cstdlib>
+using namespace std;
 
 struct Node {
     int coeff;
     int pow;
-    struct Node *next;
+    Node *next;
 };
 
-struct Node* GetNode(int coeff, int pow) {
-    struct Node* newNode = (struct Node*) malloc(sizeof(struct Node));
+/* Create new node */
+Node* GetNode(int coeff, int pow) {
+    Node* newNode = (Node*) malloc(sizeof(Node));
     newNode->coeff = coeff;
     newNode->pow = pow;
     newNode->next = NULL;
     return newNode;
 }
 
-void InsertEnd(struct Node** poly, int coeff, int pow) {
-    struct Node* newNode = GetNode(coeff, pow);
+/* Insert at end */
+void InsertEnd(Node** poly, int coeff, int pow) {
+    Node* newNode = GetNode(coeff, pow);
     if (*poly == NULL) {
         *poly = newNode;
         return;
     }
-    struct Node* temp = *poly;
+    Node* temp = *poly;
     while (temp->next != NULL)
         temp = temp->next;
     temp->next = newNode;
 }
 
-void Traverse(struct Node* poly) {
+/* Display polynomial */
+void Traverse(Node* poly) {
     while (poly != NULL) {
-        printf("%dx^%d", poly->coeff, poly->pow);
+        cout << poly->coeff << "x^" << poly->pow;
         poly = poly->next;
         if (poly != NULL)
-            printf(" + ");
+            cout << " + ";
     }
-    printf("\n");
+    cout << endl;
 }
 
-// ---------- ADDITION ----------
-struct Node* AddPolynomial(struct Node* poly1, struct Node* poly2) {
-    struct Node* poly3 = NULL;
-    struct Node* p = poly1;
-    struct Node* q = poly2;
+/* ---------- ADDITION ---------- */
+Node* AddPolynomial(Node* poly1, Node* poly2) {
+    Node* poly3 = NULL;
+    Node* p = poly1;
+    Node* q = poly2;
 
     while (p != NULL && q != NULL) {
         if (p->pow == q->pow) {
@@ -59,22 +64,25 @@ struct Node* AddPolynomial(struct Node* poly1, struct Node* poly2) {
             q = q->next;
         }
     }
+
     while (p != NULL) {
         InsertEnd(&poly3, p->coeff, p->pow);
         p = p->next;
     }
+
     while (q != NULL) {
         InsertEnd(&poly3, q->coeff, q->pow);
         q = q->next;
     }
+
     return poly3;
 }
 
-// ---------- SUBTRACTION ----------
-struct Node* SubtractPolynomial(struct Node* poly1, struct Node* poly2) {
-    struct Node* poly3 = NULL;
-    struct Node* p = poly1;
-    struct Node* q = poly2;
+/* ---------- SUBTRACTION ---------- */
+Node* SubtractPolynomial(Node* poly1, Node* poly2) {
+    Node* poly3 = NULL;
+    Node* p = poly1;
+    Node* q = poly2;
 
     while (p != NULL && q != NULL) {
         if (p->pow == q->pow) {
@@ -91,40 +99,43 @@ struct Node* SubtractPolynomial(struct Node* poly1, struct Node* poly2) {
             q = q->next;
         }
     }
+
     while (p != NULL) {
         InsertEnd(&poly3, p->coeff, p->pow);
         p = p->next;
     }
+
     while (q != NULL) {
         InsertEnd(&poly3, -q->coeff, q->pow);
         q = q->next;
     }
+
     return poly3;
 }
 
-// ---------- MULTIPLICATION ----------
-struct Node* MultiplyPolynomial(struct Node* poly1, struct Node* poly2) {
-    struct Node* poly3 = NULL;
-    struct Node* p = poly1;
+/* ---------- MULTIPLICATION ---------- */
+Node* MultiplyPolynomial(Node* poly1, Node* poly2) {
+    Node* poly3 = NULL;
+    Node* p = poly1;
 
     while (p != NULL) {
-        struct Node* q = poly2;
+        Node* q = poly2;
         while (q != NULL) {
             int coeff = p->coeff * q->coeff;
-            int pow = p->pow + q->pow;
+            int power = p->pow + q->pow;
 
-            // Check if power already exists
-            struct Node* temp = poly3;
-            struct Node* prev = NULL;
-            while (temp != NULL && temp->pow > pow) {
+            Node* temp = poly3;
+            Node* prev = NULL;
+
+            while (temp != NULL && temp->pow > power) {
                 prev = temp;
                 temp = temp->next;
             }
 
-            if (temp != NULL && temp->pow == pow) {
+            if (temp != NULL && temp->pow == power) {
                 temp->coeff += coeff;
             } else {
-                struct Node* newNode = GetNode(coeff, pow);
+                Node* newNode = GetNode(coeff, power);
                 if (prev == NULL) {
                     newNode->next = poly3;
                     poly3 = newNode;
@@ -140,34 +151,37 @@ struct Node* MultiplyPolynomial(struct Node* poly1, struct Node* poly2) {
     return poly3;
 }
 
+/* Main Function */
 int main() {
-    struct Node *poly1 = NULL, *poly2 = NULL;
-    struct Node *sum = NULL, *diff = NULL, *prod = NULL;
+    Node *poly1 = NULL, *poly2 = NULL;
+    Node *sum = NULL, *diff = NULL, *prod = NULL;
 
-    // Example 1:
+    // Polynomial 1: 5x^3 + 4x^2 + 2x^1
     InsertEnd(&poly1, 5, 3);
     InsertEnd(&poly1, 4, 2);
     InsertEnd(&poly1, 2, 1);
 
+    // Polynomial 2: 3x^3 + 2x^1 + 1x^0
     InsertEnd(&poly2, 3, 3);
     InsertEnd(&poly2, 2, 1);
     InsertEnd(&poly2, 1, 0);
 
-    printf("First Polynomial: ");
+    cout << "First Polynomial: ";
     Traverse(poly1);
-    printf("Second Polynomial: ");
+
+    cout << "Second Polynomial: ";
     Traverse(poly2);
 
     sum = AddPolynomial(poly1, poly2);
-    printf("Addition Result: ");
+    cout << "Addition Result: ";
     Traverse(sum);
 
     diff = SubtractPolynomial(poly1, poly2);
-    printf("Subtraction Result: ");
+    cout << "Subtraction Result: ";
     Traverse(diff);
 
     prod = MultiplyPolynomial(poly1, poly2);
-    printf("Multiplication Result: ");
+    cout << "Multiplication Result: ";
     Traverse(prod);
 
     return 0;

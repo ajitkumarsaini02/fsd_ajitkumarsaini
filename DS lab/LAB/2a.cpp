@@ -1,6 +1,8 @@
 // Array implementation of Stack
-#include <stdio.h>
-#include <stdlib.h>
+
+#include <iostream>
+using namespace std;
+
 #define STACKSIZE 10
 
 // Stack structure
@@ -33,18 +35,18 @@ int IsFull() {
 /* Push Operation */
 void push(int x) {
     if (IsFull()) {
-        printf("Stack Overflow\n");
+        cout << "Stack Overflow" << endl;
         return;
     }
     S.top++;
     S.item[S.top] = x;
-    printf("%d pushed into stack\n", x);
+    cout << x << " pushed into stack" << endl;
 }
 
 /* Pop Operation */
 int pop() {
     if (IsEmpty()) {
-        printf("Stack Underflow\n");
+        cout << "Stack Underflow" << endl;
         return -1;
     }
     int x = S.item[S.top];
@@ -55,7 +57,7 @@ int pop() {
 /* Peek / Stack Top */
 int stackTop() {
     if (IsEmpty()) {
-        printf("Stack is empty\n");
+        cout << "Stack is empty" << endl;
         return -1;
     }
     return S.item[S.top];
@@ -64,13 +66,13 @@ int stackTop() {
 /* Display Stack */
 void Display() {
     if (IsEmpty()) {
-        printf("Stack is empty\n");
+        cout << "Stack is empty" << endl;
         return;
     }
 
-    printf("Stack elements (Top to Bottom):\n");
+    cout << "Stack elements (Top to Bottom):" << endl;
     for (int i = S.top; i >= 0; i--) {
-        printf("%d\n", S.item[i]);
+        cout << S.item[i] << endl;
     }
 }
 
@@ -84,15 +86,15 @@ int main() {
     push(400);
     push(500);
 
-    printf("\n");
+    cout << endl;
     Display();
 
-    printf("\nPopped element: %d\n", pop());
-    printf("Popped element: %d\n", pop());
+    cout << "\nPopped element: " << pop() << endl;
+    cout << "Popped element: " << pop() << endl;
 
-    printf("\nTop element: %d\n", stackTop());
+    cout << "\nTop element: " << stackTop() << endl;
 
-    printf("\nFinal Stack:\n");
+    cout << "\nFinal Stack:" << endl;
     Display();
 
     return 0;

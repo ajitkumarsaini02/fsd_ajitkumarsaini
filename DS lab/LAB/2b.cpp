@@ -1,7 +1,10 @@
- // Evaluation of Postfix Expression
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
+// Evaluation of Postfix Expression
+
+#include <iostream>
+#include <cmath>
+#include <cstdlib>
+using namespace std;
+
 #define STACKSIZE 10
 
 struct stack {
@@ -9,17 +12,20 @@ struct stack {
     int top;
 } S;
 
+/* Initialize Stack */
 void Initialize() {
     S.top = -1;
 }
 
+/* Check if Stack is Empty */
 int IsEmpty() {
     return (S.top == -1);
 }
 
+/* Push Operation */
 void push(int x) {
     if (S.top == STACKSIZE - 1) {
-        printf("Stack overflow\n");
+        cout << "Stack overflow" << endl;
         exit(1);
     } else {
         S.top++;
@@ -27,9 +33,10 @@ void push(int x) {
     }
 }
 
+/* Pop Operation */
 int pop() {
     if (IsEmpty()) {
-        printf("Stack underflow\n");
+        cout << "Stack underflow" << endl;
         exit(1);
     } else {
         int x = S.item[S.top];
@@ -38,6 +45,7 @@ int pop() {
     }
 }
 
+/* Evaluate Operation */
 int Evaluate(int x, int y, char symbol) {
     switch (symbol) {
         case '+': return x + y;
@@ -46,16 +54,19 @@ int Evaluate(int x, int y, char symbol) {
         case '/': return x / y;
         case '^': return (int)pow(x, y);
         default:
-            printf("Invalid operator: %c\n", symbol);
+            cout << "Invalid operator: " << symbol << endl;
             exit(1);
     }
 }
 
+/* Postfix Evaluation */
 void postfixEvaluation(char postfix[]) {
     int i = 0;
     Initialize();
+
     while (postfix[i] != '\0') {
         char symbol = postfix[i];
+
         if (symbol >= '0' && symbol <= '9') {
             push(symbol - '0');
         } else {
@@ -66,13 +77,16 @@ void postfixEvaluation(char postfix[]) {
         }
         i++;
     }
-    printf("Result: %d\n", pop());
+
+    cout << "Result: " << pop() << endl;
 }
 
+/* Main Function */
 int main() {
     char expression[100];
-    printf("Enter postfix expression: ");
-    scanf("%s", expression);
+
+    cout << "Enter postfix expression: ";
+    cin >> expression;
 
     postfixEvaluation(expression);
 
