@@ -1,4 +1,4 @@
-// Array implementation on stack 
+// Array implementation of Stack
 #include <stdio.h>
 #include <stdlib.h>
 #define STACKSIZE 10
@@ -9,12 +9,12 @@ struct stack {
     int top;
 } S;
 
-// Initialize stack
+/* Initialize Stack */
 void Initialize() {
     S.top = -1;
 }
 
-// Check if stack is empty
+/* Check if Stack is Empty */
 int IsEmpty() {
     if (S.top == -1)
         return 1;
@@ -22,34 +22,59 @@ int IsEmpty() {
         return 0;
 }
 
-// Push operation
-void push(int x) {
-    if (S.top == STACKSIZE - 1) {
-        printf("Stack overflow\n");
-        exit(1);
-    } else {
-        S.top += 1;
-        S.item[S.top] = x;
-    }
+/* Check if Stack is Full */
+int IsFull() {
+    if (S.top == STACKSIZE - 1)
+        return 1;
+    else
+        return 0;
 }
 
-// Pop operation
+/* Push Operation */
+void push(int x) {
+    if (IsFull()) {
+        printf("Stack Overflow\n");
+        return;
+    }
+    S.top++;
+    S.item[S.top] = x;
+    printf("%d pushed into stack\n", x);
+}
+
+/* Pop Operation */
 int pop() {
     if (IsEmpty()) {
-        printf("Stack underflow\n");
-        exit(1);
-    } else {
-        int x = S.item[S.top];
-        S.top -= 1;
-        return x;
+        printf("Stack Underflow\n");
+        return -1;
     }
+    int x = S.item[S.top];
+    S.top--;
+    return x;
 }
 
-// Return top element
+/* Peek / Stack Top */
 int stackTop() {
+    if (IsEmpty()) {
+        printf("Stack is empty\n");
+        return -1;
+    }
     return S.item[S.top];
 }
 
+/* Display Stack */
+void Display() {
+    if (IsEmpty()) {
+        printf("Stack is empty\n");
+        return;
+    }
+
+    printf("Stack elements (Top to Bottom):\n");
+    for (int i = S.top; i >= 0; i--) {
+        printf("%d\n", S.item[i]);
+    }
+}
+
+/* Main Function */
 int main() {
     Initialize();
 
@@ -58,19 +83,17 @@ int main() {
     push(300);
     push(400);
     push(500);
-    push(600);
-    push(700);
-    push(800);
-    push(900);
-    push(1000);
 
-    printf("Stack elements:\n");
-    for (int i = 0; i < STACKSIZE; i++) {
-        printf("%d\n", S.item[i]);
-    }
+    printf("\n");
+    Display();
 
-    printf("Pop: %d\n", pop());
-    printf("Pop: %d\n", pop());
+    printf("\nPopped element: %d\n", pop());
+    printf("Popped element: %d\n", pop());
+
+    printf("\nTop element: %d\n", stackTop());
+
+    printf("\nFinal Stack:\n");
+    Display();
 
     return 0;
 }
